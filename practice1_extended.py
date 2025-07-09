@@ -1,4 +1,4 @@
-# extended_app.py
+practise 2 # extended_app.py
 
 """
 🚨 WARNING: This file contains FAKE secrets for testing secret scanners.
