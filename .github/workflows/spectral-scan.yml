@@ -1,0 +1,21 @@
+name: SpectralOps Secret Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  spectral-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Spectral CLI
+        run: curl -s https://get.spectralops.io/latest/x/sh | sh
+
+      - name: Run Spectral Scan
+        env:
+          SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN }}
+        run: ~/.spectral/spectral scan --include-tags base,audit
